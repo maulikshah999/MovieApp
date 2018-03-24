@@ -8,7 +8,7 @@ import com.movieapp.NowPlayingFragment;
 import com.movieapp.UpcomingMoviesFragment;
 
 /**
- * Created by mauli on 3/23/2018.
+ * Created by maulik on 3/23/2018.
  */
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {

@@ -26,6 +26,7 @@ import com.movieapp.models.MovieResponse;
 import com.movieapp.utils.AppUtils;
 import com.movieapp.utils.ConnectionRefreshable;
 import com.movieapp.utils.Constants;
+import com.movieapp.utils.CustomGridRecyclerView;
 import com.movieapp.utils.PaginationScrollListener;
 import com.movieapp.utils.WrapContentGridLayoutManager;
 
@@ -42,10 +43,9 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
     private List<Movie> movieList;
     private SwipeRefreshLayout swipeRefresh;
     private static final String TAG = NowPlayingFragment.class.getName();
-    private RecyclerView recyclerView;
+    private CustomGridRecyclerView recyclerView;
     private CoordinatorLayout coordinatorLayout;
     private GridLayoutManager gridLayoutManager;
-    // private LinearLayoutManager linearLayoutManager;
     private boolean isLastPage = false;
     private boolean isLoading = false;
     private static int PAGE_START = 1;
@@ -67,22 +67,17 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
         swipeRefresh.setColorSchemeResources(R.color.colorAccent);
 
         coordinatorLayout = (CoordinatorLayout) getActivity().findViewById(R.id.coordinatorLayoutMovieList);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView = (CustomGridRecyclerView) view.findViewById(R.id.recyclerView);
 
         movieList = new ArrayList<>();
         adapter = new MovieAdapter(getActivity(), movieList);
 
         if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             gridLayoutManager = new WrapContentGridLayoutManager(getActivity(), 2);
-            //gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         } else {
             gridLayoutManager = new WrapContentGridLayoutManager(getActivity(), 4);
-            //gridLayoutManager = new GridLayoutManager(getActivity(), 4);
         }
         recyclerView.setLayoutManager(gridLayoutManager);
-
-        /* linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager); */
 
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
@@ -131,12 +126,10 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
             }
         });
 
-        // Handle Configration Change
-        // setRetainInstance(true);
-
+        // Handle Configuration Change
         apiSrv = Client.getClient().create(Service.class);
         /*
-        * Configration Changes handled here
+        * Configuration Changes handled here
         * */
         if (savedInstanceState != null) {
             Log.d(TAG, "saved instance not null called");
@@ -274,7 +267,6 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
         currentPage = PAGE_START;
         TOTAL_PAGES = 0;
         movieList.clear();
-        //   adapter.clear();
     }
 
     @Override

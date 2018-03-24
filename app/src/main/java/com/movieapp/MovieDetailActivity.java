@@ -49,7 +49,6 @@ public class MovieDetailActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == android.R.id.home) {
             onBackPressed();
-            //NavUtils.navigateUpTo(this, new Intent(this, MovieListActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

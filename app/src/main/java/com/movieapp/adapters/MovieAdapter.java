@@ -16,6 +16,7 @@ import com.movieapp.R;
 import com.movieapp.models.Movie;
 import com.movieapp.utils.Constants;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -65,7 +66,15 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 MovieViewHolder movieViewHolder = (MovieViewHolder) holder;
 
                 movieViewHolder.tvMovieTitle.setText(model.getOriginal_title());
-                movieViewHolder.tvMoviePopularity.setText(mContext.getString(R.string.txt_movie_popularity) + " : " + model.getPopularity());
+
+                DecimalFormat df = new DecimalFormat("###.##");
+                try {
+                    Float popularity = Float.parseFloat(df.format(model.getPopularity()));
+                    movieViewHolder.tvMoviePopularity.setText(mContext.getString(R.string.txt_movie_popularity) + " : " + popularity);
+                } catch (IllegalArgumentException ie) {
+                    ie.printStackTrace();
+                }
+
                 String imgUrl = model.getImageUrl();
                 if (imgUrl != null && imgUrl.length() > 0) {
                     Glide.with(mContext).load(model.getBaseImageUrl() + imgUrl).into(movieViewHolder.ivMovieBanner);

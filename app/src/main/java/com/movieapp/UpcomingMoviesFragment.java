@@ -26,6 +26,7 @@ import com.movieapp.models.MovieResponse;
 import com.movieapp.utils.AppUtils;
 import com.movieapp.utils.ConnectionRefreshable;
 import com.movieapp.utils.Constants;
+import com.movieapp.utils.CustomGridRecyclerView;
 import com.movieapp.utils.PaginationScrollListener;
 import com.movieapp.utils.WrapContentGridLayoutManager;
 
@@ -42,7 +43,7 @@ public class UpcomingMoviesFragment extends Fragment implements ConnectionRefres
     private List<Movie> movieList;
     private SwipeRefreshLayout swipeRefresh;
     private static final String TAG = NowPlayingFragment.class.getName();
-    private RecyclerView recyclerView;
+    private CustomGridRecyclerView recyclerView;
     private int page = 1;
     private CoordinatorLayout coordinatorLayout;
     private GridLayoutManager gridLayoutManager;
@@ -73,7 +74,7 @@ public class UpcomingMoviesFragment extends Fragment implements ConnectionRefres
             }
         });
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView = (CustomGridRecyclerView) view.findViewById(R.id.recyclerView);
         coordinatorLayout = (CoordinatorLayout) getActivity().findViewById(R.id.coordinatorLayoutMovieList);
 
         movieList = new ArrayList<>();
@@ -81,10 +82,8 @@ public class UpcomingMoviesFragment extends Fragment implements ConnectionRefres
 
         if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             gridLayoutManager = new WrapContentGridLayoutManager(getActivity(), 2);
-            //gridLayoutManager = new GridLayoutManager(getActivity(),2);
         } else {
             gridLayoutManager = new WrapContentGridLayoutManager(getActivity(), 4);
-            //gridLayoutManager = new GridLayoutManager(getActivity(),4);
         }
         recyclerView.setLayoutManager(gridLayoutManager);
 
