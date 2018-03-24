@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="title_movie_detail">Movie Detail</string>
+    <string name="txt_now_playing">NOW PLAYING</string>
+    <string name="txt_upcoming_movies">UPCOMING MOVIES</string>
+    <string name="txt_movie_title"> Title </string>
+    <string name="txt_movie_rating"> Rating </string>
+    <string name="txt_movie_popularity"> Popularity </string>
+    <string name="txt_release_date"> Release Date </string>
+    <string name="txt_user_rating"> User Rating </string>
+    <string name="txt_no_connection"> No Connection </string>
+    <string name="txt_retry"> RETRY </string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_movie_detail">MovieDetailActivity</string>
+
+</resources>
