@@ -5,6 +5,5 @@ package com.movieapp.utils;
  */
 
 public interface ConnectionRefreshable {
-
     public void onRefreshPage();
 }

@@ -21,7 +21,7 @@ public class WrapContentGridLayoutManager extends GridLayoutManager {
             // This crash happens when RecyclerView modifies its' content in different thread. It does not have a side effects.   
             super.onLayoutChildren(recycler, state);
         } catch (IndexOutOfBoundsException e) {
-            // e.printStackTrace();
+            // DO NOTHING - Exception handled to prevent app crash (it'll unnecessarily add logs)
         }
     }
 }

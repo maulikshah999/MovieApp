@@ -41,7 +41,7 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
         RecyclerView.ViewHolder viewHolder = null;
-
+        //pagination mechanism (loading progressbar at the bottom)
         switch (viewType) {
             case ITEM:
                 View view1 = mInflater.inflate(R.layout.row_movie_item, parent, false);

@@ -152,6 +152,7 @@ public class UpcomingMoviesFragment extends Fragment implements ConnectionRefres
             }
 
             resetVariables();
+            // API call to Upcoming Movies
             Call<com.movieapp.models.MovieResponse> callMovieResponse = apiSrv.getUpComingMoviesV3(BuildConfig.THE_MOVIE_DB_API_KEY, currentPage, Constants.CONTENT_TYPE);
             callMovieResponse.enqueue(new Callback<MovieResponse>() {
                 @Override
@@ -191,6 +192,7 @@ public class UpcomingMoviesFragment extends Fragment implements ConnectionRefres
 
         Log.d(TAG, "loadNextPage " + currentPage);
 
+        //API call Upcoming Movies for next page
         Call<MovieResponse> callMovieResponse = apiSrv.getUpComingMoviesV3(BuildConfig.THE_MOVIE_DB_API_KEY, currentPage, Constants.CONTENT_TYPE);
         callMovieResponse.enqueue(new Callback<MovieResponse>() {
             @Override
@@ -222,6 +224,7 @@ public class UpcomingMoviesFragment extends Fragment implements ConnectionRefres
         dismissSwipeLayout();
     }
 
+    //save instance state
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);

@@ -14,6 +14,7 @@ public class Client {
 
     public static Retrofit retrofit = null;
 
+    //using retrofit library for API call
     public static Retrofit getClient() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()

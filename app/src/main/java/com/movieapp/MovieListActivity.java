@@ -35,7 +35,7 @@ public class MovieListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
-
+        //initialization
         init();
 
         if (findViewById(R.id.movie_detail_container) != null) {
@@ -48,11 +48,13 @@ public class MovieListActivity extends AppCompatActivity {
     }
 
     private void init() {
+        // Initialization of tab layout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.txt_now_playing)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.txt_upcoming_movies)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
+        // View Pager implementation
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         final FragmentStatePagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);

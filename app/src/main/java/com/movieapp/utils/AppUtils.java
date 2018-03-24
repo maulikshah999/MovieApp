@@ -16,7 +16,7 @@ import com.movieapp.R;
 
 public class AppUtils {
 
-
+    // check network connectivity
     public static boolean isNetworkConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 

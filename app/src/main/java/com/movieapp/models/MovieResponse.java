@@ -11,6 +11,9 @@ import java.util.List;
  * Created by mauli on 3/21/2018.
  */
 
+/*
+    Movie response model
+ */
 public class MovieResponse implements Parcelable {
 
     @SerializedName("page")

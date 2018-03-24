@@ -85,6 +85,7 @@ public class MovieDetailFragment extends Fragment {
 
     }
 
+    //Collapse toolbar on scroll
     private void initCollapsingToolbar(View view) {
         collapsingToolbarLayout = (CollapsingToolbarLayout) getActivity().findViewById(R.id.toolbar_layout);
         collapsingToolbarLayout.setTitle(" ");
@@ -112,6 +113,7 @@ public class MovieDetailFragment extends Fragment {
 
     }
 
+    //fill data view
     private void fillDataInView() {
         StringBuilder builder = new StringBuilder();
         tv_title.setText(movie.getOriginal_title());

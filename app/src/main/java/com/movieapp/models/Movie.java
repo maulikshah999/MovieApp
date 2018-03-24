@@ -8,7 +8,8 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by mauli on 3/23/2018.
  */
-
+/* Movie Model
+* */
 public class Movie implements Parcelable {
 
     @SerializedName("id")

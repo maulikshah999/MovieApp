@@ -62,6 +62,8 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
         return view;
     }
 
+    /* initializes the view
+     */
     private void init(View view, Bundle savedInstanceState) {
         swipeRefresh = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefresh);
         swipeRefresh.setColorSchemeResources(R.color.colorAccent);
@@ -141,7 +143,7 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
     }
 
     private void loadFirstPage() {
-
+        //check internet connectivity using snack bar
         if (!AppUtils.isNetworkConnected(getActivity())) {
             AppUtils.showNoConnectionSnackBar(coordinatorLayout, getActivity(), this);
             dismissSwipeLayout();
@@ -157,6 +159,7 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
             }
 
             resetVariables();
+            //API call to now playing webservice.
             Call<MovieResponse> callMovieResponse = apiSrv.getNowPlayingMoviesV3(BuildConfig.THE_MOVIE_DB_API_KEY, currentPage, Constants.CONTENT_TYPE);
             callMovieResponse.enqueue(new Callback<MovieResponse>() {
                 @Override
@@ -189,7 +192,6 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
             e.printStackTrace();
         }
         dismissSwipeLayout();
-
     }
 
     private void loadNextPage() {
@@ -229,12 +231,14 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
         dismissSwipeLayout();
     }
 
+    //save state of instance.
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable(Constants.NOW_PLAYING, getData());
     }
 
+    // store data for save instance state
     public void setData(MovieResponse movieResponse) {
         mMovieResponse = movieResponse;
         fillNowPlayingFragmentData(mMovieResponse);
@@ -245,6 +249,7 @@ public class NowPlayingFragment extends Fragment implements ConnectionRefreshabl
         return mMovieResponse;
     }
 
+    //movie list layout fill up after save instance state
     private void fillNowPlayingFragmentData(MovieResponse movieResponse) {
         currentPage = movieResponse.getPage();
         TOTAL_PAGES = movieResponse.getTotal_pages();
