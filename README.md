@@ -2,16 +2,17 @@
 Movie App - check current and upcoming movie lists in your nearby movie theaters.
 
 Basic Functionalities:
-1 central page with two tabs at the top
-1 tab titled “Now Playing”
-1 tab titled “Upcoming movies”
-Each tab shows a list of movies according to the tab selected
-Each row item (CardView) has:
-Movie name
-Movie popularity
-Movie Detail Page:
-Click movie in the list (RecyclerView item click) moves to movie detail page.
-Movie details page contains: Movie Title, Movie Image, Overview, Release Date, User Rating.
+• 1 central page with two tabs at the top
+	o 1 tab titled “Now Playing”
+	o 1 tab titled “Upcoming movies”
+• Each tab shows a list of movies according to the tab selected
+	o Each row item (CardView) has:
+		 Movie name
+		 Movie popularity
+• Movie Detail Page:
+	o Click movie in the list (RecyclerView item click) moves to movie detail page.
+	o Movie details page contains: Movie Title, Movie Image, Overview, Release Date, User Rating. 
+
  
 Extra Features:
 1) Pagination mechanism
